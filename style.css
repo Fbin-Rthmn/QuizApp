@@ -4,9 +4,15 @@ body {
 
 .container {
     min-height: 100vh;
-    background-color: #3F51B5 !important;
     display: flex;
     justify-content: center;
     align-items: center;
 
+}
+
+.question-footer {
+    border-top: solid rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
