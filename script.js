@@ -21,17 +21,15 @@ function answer(selection) {
     let question = questions[currentQuestion];
     let selectionNumber = selection.slice(-1);
     let idOfRightAnswer = `answer_${question['right_answer']}`;
-    console.log(idOfRightAnswer);
 
     if (selectionNumber == question['right_answer']) {
-        console.log('Richtig!!!');
         document.getElementById(selection).parentNode.classList.add('bg-success');
         document.getElementById(selection).parentNode.classList.add('text-white');
     } else {
-        console.log('Falsch!!');
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(selection).parentNode.classList.add('text-white');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('text-white');
     }
+    document.getElementById('next-button').disabled = false;
 }
