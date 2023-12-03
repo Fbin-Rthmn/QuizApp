@@ -14,5 +14,13 @@ let questions = [
         "answer_3": "FPY",
         "answer_4": "VP-100",
         "right_answer": 2
+    },
+    {
+        "question": "Weitere Fragen?",
+        "answer_1": "P2",
+        "answer_2": "P3",
+        "answer_3": "FPY",
+        "answer_4": "VP-100",
+        "right_answer": 2
     }
 ];

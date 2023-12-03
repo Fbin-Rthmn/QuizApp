@@ -21,3 +21,21 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+#question-endScreen h1 {
+    text-align: center;
+    margin: 16px 0;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.restart-Button {
+    text-align: center;
+    margin: 24px 0;
+}

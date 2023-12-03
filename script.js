@@ -1,7 +1,9 @@
+let rightQuestions = 0;
 let currentQuestion = 0;
 
+
 function init() {
-    document.getElementById('question-length').innerHTML = questions.length;
+    document.getElementById('question-length-1').innerHTML = questions.length;
     showQuestion();
 }
 
@@ -10,9 +12,19 @@ function showQuestion() {
     let question = questions[currentQuestion];
 
     if (currentQuestion >= questions.length) {
+        // Show End Screen
         document.getElementById('question-endScreen').style = ''
         document.getElementById('question-body').style = 'display: none'
-    } else {
+        document.getElementById('question-length-2').innerHTML = questions.length;
+        document.getElementById('amount-right-questions').innerHTML = rightQuestions;
+        document.getElementById('header-image').src = './img/trophy.png';
+    } else { 
+        // Show Question
+        let percent = ((currentQuestion + 1) / questions.length) * 100;
+        percent = Math.round(percent);
+
+        document.getElementById('progress-bar').innerHTML = `${percent} %`;
+        document.getElementById('progress-bar').style = `width: ${percent}%`;
         document.getElementById('question-current').innerHTML = currentQuestion + 1;
         document.getElementById('question').innerHTML = question['question'];
         document.getElementById('answer_1').innerHTML = question['answer_1'];
@@ -31,6 +43,7 @@ function answer(selection) {
     if (selectionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
         document.getElementById(selection).parentNode.classList.add('text-white');
+        rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(selection).parentNode.classList.add('text-white');

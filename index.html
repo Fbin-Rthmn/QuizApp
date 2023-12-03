@@ -25,11 +25,24 @@
 
     <div class="container">
       <div class="card" style="width: 30rem;">
-        <img src="./img/bkg_school-supplies.jpg" class="card-img-top">
+        <img src="./img/bkg_school-supplies.jpg" id="header-image" class="card-img-top">
+        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" id="progress-bar" style="width: 25%">25%</div>
+        </div>
+
 
         <div id="question-endScreen" style="display: none;">
-          <b>Quiz beendet!</b>
+          <div>
+            <h1>Quiz beendet!</h1>
+          </div>
+          <div class="text-center">
+            Du hast <b id="amount-right-questions"></b> Fragen von <b id="question-length-2"></b> richtig beantwortet
+          </div>
+          <div class="restart-Button">
+            <button onclick="restartGame()" class="btn btn-primary">Erneut spielen</button>
+          </div>
         </div>
+
 
         <div class="card-body" id="question-body">
           <h5 class="card-title" id="question">Frage</h5>
@@ -60,7 +73,7 @@
 
           <div class="question-footer pt-3">
             <span>
-              <b id="question-current">1</b> von <b id="question-length">5</b> Fragen
+              <b id="question-current">1</b> von <b id="question-length-1">5</b> Fragen
             </span>
               <button class="btn btn-primary" id="next-button" disabled onclick="nextQuestion()">Nächste Frage</button>
           </div>
