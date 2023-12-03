@@ -1,5 +1,8 @@
 let rightQuestions = 0;
 let currentQuestion = 0;
+let audio_right = new Audio('./audio/correct.mp3');
+let audio_false = new Audio('./audio/wrong.mp3');
+let audio_finish = new Audio('./audio/finish.mp3');
 
 
 function init() {
@@ -18,6 +21,7 @@ function showQuestion() {
         document.getElementById('question-length-2').innerHTML = questions.length;
         document.getElementById('amount-right-questions').innerHTML = rightQuestions;
         document.getElementById('header-image').src = './img/trophy.png';
+        audio_finish.play();
     } else { 
         // Show Question
         let percent = ((currentQuestion + 1) / questions.length) * 100;
@@ -43,12 +47,14 @@ function answer(selection) {
     if (selectionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
         document.getElementById(selection).parentNode.classList.add('text-white');
+        audio_right.play();
         rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(selection).parentNode.classList.add('text-white');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('text-white');
+        audio_false.play();
     }
     document.getElementById('next-button').disabled = false;
 }
@@ -70,4 +76,15 @@ function resetAnswerButton() {
         document.getElementById(index).parentNode.classList.remove('bg-danger');
         document.getElementById(index).parentNode.classList.remove('text-white');
     }
+}
+
+
+function restartGame() {
+    document.getElementById('question-endScreen').style = 'display: none';
+    document.getElementById('question-body').style = '';
+    document.getElementById('header-image').src = './img/bkg_school-supplies.jpg';
+
+    currentQuestion = 0;
+    rightQuestions = 0;
+    init();
 }
