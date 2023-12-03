@@ -26,7 +26,12 @@
     <div class="container">
       <div class="card" style="width: 30rem;">
         <img src="./img/bkg_school-supplies.jpg" class="card-img-top">
-        <div class="card-body">
+
+        <div id="question-endScreen" style="display: none;">
+          <b>Quiz beendet!</b>
+        </div>
+
+        <div class="card-body" id="question-body">
           <h5 class="card-title" id="question">Frage</h5>
 
           <div class="card card-answer mb-2">
@@ -55,10 +60,9 @@
 
           <div class="question-footer pt-3">
             <span>
-              <b>1</b> von <b id="question-length">5</b> Fragen
+              <b id="question-current">1</b> von <b id="question-length">5</b> Fragen
             </span>
-              <button class="btn btn-primary" id="next-button" disabled>Nächste Frage</button>
-            
+              <button class="btn btn-primary" id="next-button" disabled onclick="nextQuestion()">Nächste Frage</button>
           </div>
 
         </div>
